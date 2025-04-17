@@ -1,0 +1,32 @@
+# Filebeat Configuration to Send Cowrie Logs to Splunk HEC
+
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /home/your-username/cowrie/var/log/cowrie/cowrie.json
+    json.keys_under_root: true
+    json.add_error_key: true
+    fields:
+      source: cowrie
+    fields_under_root: true
+
+# Replace this with your Splunk HEC endpoint
+output.http:
+  enabled: true
+  url: "https://<your-splunk-hec-endpoint>:8088"
+  ssl.verification_mode: none  # Only disable if using self-signed certs
+
+  # Replace <your-token> with your actual Splunk HEC token
+  headers:
+    Authorization: "Splunk <your-token>"
+
+# Optional logging (good for troubleshooting)
+logging:
+  level: info
+  to_files: true
+  files:
+    path: /var/log/filebeat
+    name: filebeat.log
+    keepfiles: 5
+    permissions: 0644
