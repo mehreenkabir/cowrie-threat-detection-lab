@@ -1,19 +1,21 @@
-# Cowrie Threat Detection Lab
+## Cowrie Threat Detection Lab (Splunk SIEM)
 
-Threat Deception, Log Engineering, and Detection Development — A 4-month R&D project to simulate attacker behavior and detect threats using Cowrie Honeypot and Splunk.
+This lab simulates SSH brute force attacks and malicious command inputs using Cowrie honeypot-style logs. The logs are injected into Splunk via HEC, and detections are written using SPL to identify adversarial activity.
 
----
+## Project Goals
 
-## Project Timeline
+- Emulate real-world SSH attacks
+- Detect brute force and payload download behaviors
+- Simulate Blue Team alerting and investigation
+- Show detection engineering in Splunk
 
-| Month | Focus Area |
-|-------|------------|
-| Month 1 | Researched SSH attacks, honeypots, and deception techniques |
-| Month 2 | Built and tested Cowrie environments and log formats |
-| Month 3 | Developed and tested SPL detections and dashboard visualizations |
-| Month 4 | Documentation, final project polish, and GitHub deployment |
+## What’s Included
 
----
+- Python script to send logs to Splunk
+- Cowrie-style mock JSON data
+- SPL detections:
+  - Brute force login detection
+  - Malicious command input detection
 
 ## Architecture Overview
 
@@ -55,14 +57,16 @@ Threat Deception, Log Engineering, and Detection Development — A 4-month R&D p
 
 ## 📸 Detection Screenshots
 
+### Raw Cowrie Logs
+![Cowrie Logs](images/raw-events.png)
+
 ### Brute Force Attempt Detection
 ![Brute Force](images/ssh-brute-force.png)
 
 ### Suspicious Download Commands
 ![Command Injection](images/download-detection.png)
 
-### Raw Cowrie Logs
-![Cowrie Logs](images/raw-events.png)
+
 
 
 ---
