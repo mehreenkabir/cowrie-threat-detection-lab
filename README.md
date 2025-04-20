@@ -55,11 +55,15 @@ Threat Deception, Log Engineering, and Detection Development — A 4-month R&D p
 
 ## 📸 Detection Screenshots
 
-### Brute Force Attempts
-![SSH Brute Force]()
+### Brute Force Attempt Detection
+![Brute Force](images/ssh-brute-force.png)
 
-### Malicious Command Input
-![Command Detection]()
+### Suspicious Download Commands
+![Command Injection](images/download-detection.png)
+
+### Raw Cowrie Logs
+![Cowrie Logs](images/raw-events.png)
+
 
 ---
 
