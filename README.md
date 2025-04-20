@@ -24,10 +24,6 @@ I also wanted to feel like an **ethical hacker catching bad guys** — so I made
 - 🔍 **Splunk** (Local instance)
 - 📊 **Custom Detections** in SPL
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mehreenkabir/honeypot-detection-architecture-splunk/main/diagram.png" alt="Architecture Diagram" width="600"/>
-</p>
-
 ---
 
 ## 🔐 Detections
