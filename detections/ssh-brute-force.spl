@@ -1,4 +1,4 @@
-index=* sourcetype="cowrie" eventid="cowrie.login.failed"
+index=main sourcetype="cowrie" eventid="cowrie.login.failed"
 | stats count by src_ip, username
-| where count > 5
+| where count >= 2
 | sort -count
