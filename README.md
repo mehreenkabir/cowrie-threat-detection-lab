@@ -69,14 +69,14 @@ python3 inject_logs.py
 ```
 
 ## Make sure
--  Splunk HEC is enabled and listening on port 8088
- - Authorization token is correctly set in the script
-  -Log file cowrie.json exists in the project root
+- Splunk HEC is enabled and listening on port 8088
+- Authorization token is correctly set in the script
+- Log file cowrie.json exists in the project root
 
 ## Certifications and Skills Demonstrated
-  -CompTIA CySA+
-  -Splunk Fundamentals 1
-  -MITRE ATT&CK knowledge
-  -Detection engineering
-  -Python scripting for log transport
-  -Use of GitHub for project versioning and documentation
+  - CompTIA CySA+
+  - Splunk Fundamentals 1
+  - MITRE ATT&CK knowledge
+  - Detection engineering
+  - Python scripting for log transport
+  - Use of GitHub for project versioning and documentation
