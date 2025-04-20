@@ -66,13 +66,14 @@ To simulate a live attack log feed and test detection logic:
 ```bash
 python3 inject_logs.py
 
+```
 
-Make sure:
+## Make sure
   Splunk HEC is enabled and listening on port 8088
   Authorization token is correctly set in the script
   Log file cowrie.json exists in the project root
 
-Certifications and Skills Demonstrated
+## Certifications and Skills Demonstrated
   CompTIA CySA+
   Splunk Fundamentals 1
   MITRE ATT&CK knowledge
