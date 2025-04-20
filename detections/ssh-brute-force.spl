@@ -1,0 +1,4 @@
+index=* sourcetype="cowrie" eventid="cowrie.login.failed"
+| stats count by src_ip, username
+| where count > 5
+| sort -count
