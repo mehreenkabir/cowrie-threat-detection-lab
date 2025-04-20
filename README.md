@@ -1,48 +1,81 @@
-# 🕵️ Cowrie Honeypot Detection Architecture (Splunk Edition)
+# Cowrie Threat Detection Lab
 
-This project simulates a real-world SSH honeypot detection pipeline using [Cowrie](https://github.com/cowrie/cowrie), Splunk, and custom SPL rules — built to detect, analyze, and visualize attacker behavior.
-
----
-
-## 🎯 Why I Built This
-
-As a security analyst and engineer, I wanted to create a fun and functional way to show hands-on skills in:
-- Threat detection
-- Log ingestion
-- SPL detection writing
-- Honeypot deception techniques
-- Real-world threat emulation
-
-I also wanted to feel like an **ethical hacker catching bad guys** — so I made a trap, watched it get hit, and wrote detections for it 😈
+Threat Deception, Log Engineering, and Detection Development — A 4-month R&D project to simulate attacker behavior and detect threats using Cowrie Honeypot and Splunk.
 
 ---
 
-## ⚙️ Architecture Overview
+## Project Timeline
 
-- 🐍 **Cowrie** Honeypot (Simulated via `cowrie.json`)
-- 📤 **Filebeat** Config (Simulated forwarder)
-- 🔍 **Splunk** (Local instance)
-- 📊 **Custom Detections** in SPL
-
----
-
-## 🔐 Detections
-
-| Detection | Description |
-|----------|-------------|
-| [`ssh-brute-force.spl`](detections/ssh-brute-force.spl) | Detects repeated failed login attempts from the same IP |
-| [`suspicious-downloads.spl`](detections/suspicious-downloads.spl) | Detects use of wget or curl in honeypot sessions |
+| Month | Focus Area |
+|-------|------------|
+| Month 1 | Researched SSH attacks, honeypots, and deception techniques |
+| Month 2 | Built and tested Cowrie environments and log formats |
+| Month 3 | Developed and tested SPL detections and dashboard visualizations |
+| Month 4 | Documentation, final project polish, and GitHub deployment |
 
 ---
 
-## 🛠 How I Simulated the Logs
+## Architecture Overview
 
-I created fake attacker logs using a TryHackMe Kali Linux box and local tools. The logs are available in [`cowrie.json`](cowrie.json).
+- Cowrie SSH honeypot (simulated log format)
+- Filebeat-style configuration (mocked forwarding)
+- Splunk SIEM ingestion via HTTP Event Collector
+- Python log injector script
+- Custom SPL detections and dashboards
 
-Then I tested log ingestion using Splunk’s HEC:
+---
+
+## MITRE ATT&CK Mapping
+
+| Technique ID | Technique Name | Description |
+|--------------|----------------|-------------|
+| T1110.001 | Brute Force | SSH login attempts using password guessing |
+| T1059.003 | Command-Line Interface | Shell commands like `wget` and `curl` |
+| T1105 | Ingress Tool Transfer | File download activity from remote URLs |
+
+---
+
+## Detection Rules
+
+| Rule | Description |
+|------|-------------|
+| `ssh-brute-force.spl` | Detects repeated failed login attempts |
+| `suspicious-downloads.spl` | Detects use of `wget` or `curl` in honeypot sessions |
+
+---
+
+## Lessons Learned
+
+- Honeypots are valuable for understanding real attacker behavior
+- Simulated log analysis is effective for blue team practice
+- SPL detection writing shares many parallels with coding logic
+- Presentation and documentation matter as much as engineering
+
+---
+
+## Splunk Dashboard
+
+Include screenshot of Splunk dashboard visualizing detection data.
+
+---
+
+## Local Testing Instructions
+
+To simulate a live attack log feed and test detection logic:
 
 ```bash
-curl -k http://localhost:8088/services/collector \
-  -H "Authorization: Splunk <your-token>" \
-  -H "Content-Type: application/json" \
-  -d '{"sourcetype": "cowrie", "event": {"eventid":"cowrie.login.failed","username":"root","src_ip":"111.111.111.111"}}'
+python3 inject_logs.py
+
+
+Make sure:
+  Splunk HEC is enabled and listening on port 8088
+  Authorization token is correctly set in the script
+  Log file cowrie.json exists in the project root
+
+Certifications and Skills Demonstrated
+  CompTIA CySA+
+  Splunk Fundamentals 1
+  MITRE ATT&CK knowledge
+  Detection engineering
+  Python scripting for log transport
+  Use of GitHub for project versioning and documentation
