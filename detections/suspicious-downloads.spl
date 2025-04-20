@@ -1,0 +1,4 @@
+index=* sourcetype="cowrie" eventid="cowrie.command.input"
+| search input="*wget*" OR input="*curl*"
+| table _time src_ip input
+| sort -_time
