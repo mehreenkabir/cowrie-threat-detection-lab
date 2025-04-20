@@ -53,9 +53,13 @@ Threat Deception, Log Engineering, and Detection Development — A 4-month R&D p
 
 ---
 
-## Splunk Dashboard
+## 📸 Detection Screenshots
 
-Include screenshot of Splunk dashboard visualizing detection data.
+### Brute Force Attempts
+![SSH Brute Force]()
+
+### Malicious Command Input
+![Command Detection]()
 
 ---
 
