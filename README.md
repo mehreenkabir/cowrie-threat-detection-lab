@@ -1,29 +1,52 @@
-# Honeypot-Based Threat Detection Architecture with Splunk
+# 🕵️ Cowrie Honeypot Detection Architecture (Splunk Edition)
 
-## Overview
+This project simulates a real-world SSH honeypot detection pipeline using [Cowrie](https://github.com/cowrie/cowrie), Splunk, and custom SPL rules — built to detect, analyze, and visualize attacker behavior.
 
-This project simulates a real-world threat detection architecture by integrating a Cowrie SSH honeypot with Splunk. 
-The pipeline captures attacker interactions, forwards logs, and visualizes events in Splunk dashboards.
-Detections are mapped to MITRE ATT&CK.
+---
 
-...
+## 🎯 Why I Built This
 
-## About Me
+As a security analyst and engineer, I wanted to create a fun and functional way to show hands-on skills in:
+- Threat detection
+- Log ingestion
+- SPL detection writing
+- Honeypot deception techniques
+- Real-world threat emulation
 
-Hi, I'm **Mehreen Kabir** — a security analyst and engineer with a passion for catching bad actors before they know they’ve been spotted. 
-I hold the **CompTIA CySA+** and **Splunk Core Certified User** certifications, and I specialize in turning raw telemetry into real-time threat intel.
+I also wanted to feel like an **ethical hacker catching bad guys** — so I made a trap, watched it get hit, and wrote detections for it 😈
 
-...
+---
 
-## Why I Built This
+## ⚙️ Architecture Overview
 
-This project is a hands-on example of the kind of detection and visibility work I love doing.
-I didn’t just want to deploy a honeypot — 
-I wanted to build a full architecture around it: collecting data, shipping logs securely, writing MITRE-aligned detections in Splunk, 
-and visualizing it like a SOC would in the real world.
+- 🐍 **Cowrie** Honeypot (Simulated via `cowrie.json`)
+- 📤 **Filebeat** Config (Simulated forwarder)
+- 🔍 **Splunk** (Local instance)
+- 📊 **Custom Detections** in SPL
 
-...
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mehreenkabir/honeypot-detection-architecture-splunk/main/diagram.png" alt="Architecture Diagram" width="600"/>
+</p>
 
-## License
+---
 
-MIT
+## 🔐 Detections
+
+| Detection | Description |
+|----------|-------------|
+| [`ssh-brute-force.spl`](detections/ssh-brute-force.spl) | Detects repeated failed login attempts from the same IP |
+| [`suspicious-downloads.spl`](detections/suspicious-downloads.spl) | Detects use of wget or curl in honeypot sessions |
+
+---
+
+## 🛠 How I Simulated the Logs
+
+I created fake attacker logs using a TryHackMe Kali Linux box and local tools. The logs are available in [`cowrie.json`](cowrie.json).
+
+Then I tested log ingestion using Splunk’s HEC:
+
+```bash
+curl -k http://localhost:8088/services/collector \
+  -H "Authorization: Splunk <your-token>" \
+  -H "Content-Type: application/json" \
+  -d '{"sourcetype": "cowrie", "event": {"eventid":"cowrie.login.failed","username":"root","src_ip":"111.111.111.111"}}'
