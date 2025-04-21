@@ -1,3 +1,3 @@
 index=main sourcetype="cowrie" eventid="cowrie.command.input"
-| search input="*wget*" OR input="*curl*" OR input="*scp*"
+| search input="*wget*" OR input="*curl*" OR input="*chmod*" OR input="*./*"
 | stats count by src_ip input
